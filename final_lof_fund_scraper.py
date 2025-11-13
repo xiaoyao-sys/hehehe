@@ -381,7 +381,11 @@ def generate_and_save_fund_summary():
                 message += f"... 还有 {len(high_premium_funds) - 10} 只基金\n\n"
             
             message += f"{'─' * 30}\n"
-            message += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M')} (北京时间)\n"
+            # 获取北京时间（UTC+8）
+            # 由于GitHub Actions服务器使用UTC时间，需要手动加上8小时转换为北京时间
+            from datetime import timedelta
+            beijing_time = datetime.utcnow() + timedelta(hours=8)
+            message += f"🕒 {beijing_time.strftime('%Y-%m-%d %H:%M')}\n"
             
             send_wechat_notification(message, webhook_url, webhook_key)
         
@@ -526,4 +530,5 @@ def get_fund_limit_in_main(fund_code):
 if __name__ == "__main__":
     # 生成并保存基金信息汇总
     generate_and_save_fund_summary()
+
 
