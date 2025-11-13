@@ -381,7 +381,7 @@ def generate_and_save_fund_summary():
                 message += f"... 还有 {len(high_premium_funds) - 10} 只基金\n\n"
             
             message += f"{'─' * 30}\n"
-            message += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M')}\n"
+            message += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M')} (北京时间)\n"
             
             send_wechat_notification(message, webhook_url, webhook_key)
         
@@ -526,3 +526,4 @@ def get_fund_limit_in_main(fund_code):
 if __name__ == "__main__":
     # 生成并保存基金信息汇总
     generate_and_save_fund_summary()
+
