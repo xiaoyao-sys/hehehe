@@ -1,0 +1,6 @@
+*.zip
+__pycache__/
+*.pyc
+fund_*_debug.html
+fund_*_error.html
+fund_limits.ini
