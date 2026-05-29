@@ -3,9 +3,9 @@ name: Fund Monitor
 on:
   schedule:
       # 工作日每隔30分钟检查一次（北京时间13:20开始）
-    - cron: '20 5 * * 1-5'  # UTC 5:20 -> 北京时间13:20
-    - cron: '50 5 * * 1-5'  # UTC 5:50 -> 北京时间13:50
-    - cron: '50 4 * * 1-5'  # UTC 4:20 -> 北京时间12:50
+    - cron: '20 2 * * 1-5'  # UTC 2:20 -> 北京时间10:20
+    - cron: '50 2 * * 1-5'  # UTC 2:50 -> 北京时间10:50
+    - cron: '20 3 * * 1-5'  # UTC 3:20 -> 北京时间11:20
   workflow_dispatch:  # 允许手动触发
   push:
     branches: [ main ]
