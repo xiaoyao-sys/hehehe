@@ -363,7 +363,7 @@ def generate_and_save_fund_summary():
             message += f".high premium funds: {len(high_premium_funds)} 只\n"
             message += f"{'─' * 30}\n\n"
             
-            for i, fund in enumerate(high_premium_funds[:10], 1):  # 最多显示前10只
+            for i, fund in enumerate(high_premium_funds[:16], 1):  # 最多显示前16只
                 limit_info = fund.get('limit_info', '')
                 
                 message += f"{i}. 📊 {fund['name']} ({fund['code']})\n"
@@ -374,8 +374,8 @@ def generate_and_save_fund_summary():
                     message += f"   🛑 限额: 无限制\n"
                 message += f"\n"
             
-            if len(high_premium_funds) > 10:
-                message += f"... 还有 {len(high_premium_funds) - 10} 只基金\n\n"
+            if len(high_premium_funds) > 16:
+                message += f"... 还有 {len(high_premium_funds) - 16} 只基金\n\n"
             
             message += f"{'─' * 30}\n"
             # 获取北京时间（UTC+8）
